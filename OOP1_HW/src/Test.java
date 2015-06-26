@@ -22,7 +22,12 @@ public class Test {
 //		
 //		System.out.println(date1.isHoliday());
 		Human hum = new Human("T", 25, 9001261855L);
+		Teacher teach = new Teacher("Pesho", 21, 9001261880L, "IT", "FMI");
+		Student stud = new Student("Tito", 25, 9011111867L, 117499, "IT", 3);
 		
+		System.out.println(stud.isLastCourse());
+		
+		teach.workingTime();
 		hum.getGender();
 		
 		
