@@ -16,12 +16,14 @@ public class Test {
 	public static void main(String[] args) {
 		
 		
-		FlappyBird birdRed = new FlappyBird("Red Bird", 25, false, true, Color.RED, true);
+//		FlappyBird birdRed = new FlappyBird("Red Bird", 25, false, true, Color.RED, true);
+//		
+//		NewDate date1 = new NewDate(2015, 01, 01);
+//		
+//		System.out.println(date1.isHoliday());
+		Human hum = new Human("T", 25, 9001261855L);
 		
-		NewDate date1 = new NewDate(2015, 01, 01);
-		
-		System.out.println(date1.isHoliday());
-		MainEGNExtractor hum = new MainEGNExtractor("T", 25, 900126188);
+		hum.getGender();
 		
 		
 //		
