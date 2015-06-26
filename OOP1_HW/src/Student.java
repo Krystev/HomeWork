@@ -1,12 +1,10 @@
-
-
-public class Student extends Human{
+public class Student extends Human {
 	private int facultyNumber;
 	private String specialty;
 	private int course;
-	
 
-	public Student(String yourName, int yourAge, long yourEGN, int facNum, String spec, int yourCourse) {
+	public Student(String yourName, int yourAge, long yourEGN, int facNum,
+			String spec, int yourCourse) {
 		super(yourName, yourAge, yourEGN);
 		this.setFacultyNumber(facNum);
 		this.setSpecialty(spec);
@@ -37,7 +35,7 @@ public class Student extends Human{
 		this.course = course;
 	}
 
-	public boolean isLastCourse (){
+	public boolean isLastCourse() {
 		if (getCourse() < 4) {
 			return false;
 		}
