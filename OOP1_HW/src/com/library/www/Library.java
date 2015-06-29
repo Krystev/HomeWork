@@ -1,18 +1,15 @@
 package com.library.www;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
-
-
-public class Library extends Book{
+public class Library extends Book {
 	private String name;
-	private Book[] list = new Book[0];
-	
+	private ArrayList<Book> books;
 
 	public Library(String yourLibrary) {
 		this.setName(yourLibrary);
+		this.books = new ArrayList<>();
 	}
-	
 
 	public String getName() {
 		return name;
@@ -23,24 +20,47 @@ public class Library extends Book{
 	}
 
 	public void addBook(Book newBook) {
+		books.add(newBook);
+
+	}
+
+	public Book searchByAuthors(String authorName) {
 		
-		list  = Arrays.copyOf(list, list.length + 1);
-	    list[list.length - 1] = newBook;
-	    
-	    
-		
+		for (Book book : books) {
+			
+				if (authorName.equalsIgnoreCase(book.getAuthor())) {
+					return book;
+				}
+			}
+			return null;
+	}
+
+	public void getInfo(Book book) {
+		System.out
+				.printf("Title: %s%nAuthor: %s%nPublishing house: %s%nPublished year: %d%nISBN: %d%n",
+						book.getTitle(), book.getAuthor(),
+						book.getPublishingHouse(), book.getPublishYear(),
+						book.getISBN());
 	}
 	
-	public void print(){
-		for (int i = 0; i < list.length; i++) {
-			System.out.println(list[i] + "/n");
+	public void getAllInfo() {
+		
+		for (Book currentBook : books) {
+			System.out
+			.printf("%nTitle: %s%nAuthor: %s%nPublishing house: %s%nPublished year: %d%nISBN: %d%n",
+					currentBook.getTitle(), currentBook.getAuthor(),
+					currentBook.getPublishingHouse(), currentBook.getPublishYear(),
+					currentBook.getISBN());
+		}
+			
+	}
+	
+	public void dellBook (Book book) {
+		for (int i = 0; i < books.size(); i++) {
+			if (book.equals(books.get(i))) {
+			books.remove(book);	
+			}
 		}
 	}
-	
-	
-//	public String searchByAuthors(String authorName){
-//		if (authorName.toLowerCase().equals(getAuthor().toLowerCase())) {
-//			
-//		}
-//	}
+
 }
