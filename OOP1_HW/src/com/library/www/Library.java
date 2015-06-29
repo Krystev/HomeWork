@@ -24,41 +24,53 @@ public class Library extends Book {
 
 	}
 
-	public Book searchByAuthors(String authorName) {
-		
-		for (Book book : books) {
-			
-				if (authorName.equalsIgnoreCase(book.getAuthor())) {
-					return book;
+	public Book[] searchByAuthors(String authorName) {
+
+		Book[] yourBooks = new Book[books.size()];
+
+		for (int i = 0; i < books.size(); i++) {
+			for (int j = 0; j < yourBooks.length; j++) {
+				if (authorName.equalsIgnoreCase(books.get(j).getAuthor())) {
+					yourBooks[i] = books.get(j);
 				}
 			}
-			return null;
+		}
+
+		return yourBooks;
+	}
+
+	public ArrayList<Book> getBooks() {
+		return books;
+	}
+
+	public void setBooks(ArrayList<Book> books) {
+		this.books = books;
 	}
 
 	public void getInfo(Book book) {
 		System.out
-				.printf("Title: %s%nAuthor: %s%nPublishing house: %s%nPublished year: %d%nISBN: %d%n",
+				.printf("%nTitle: %s%nAuthor: %s%nPublishing house: %s%nPublished year: %d%nISBN: %d%n",
 						book.getTitle(), book.getAuthor(),
 						book.getPublishingHouse(), book.getPublishYear(),
 						book.getISBN());
 	}
-	
+
 	public void getAllInfo() {
-		
+
 		for (Book currentBook : books) {
 			System.out
-			.printf("%nTitle: %s%nAuthor: %s%nPublishing house: %s%nPublished year: %d%nISBN: %d%n",
-					currentBook.getTitle(), currentBook.getAuthor(),
-					currentBook.getPublishingHouse(), currentBook.getPublishYear(),
-					currentBook.getISBN());
+					.printf("%nTitle: %s%nAuthor: %s%nPublishing house: %s%nPublished year: %d%nISBN: %d%n",
+							currentBook.getTitle(), currentBook.getAuthor(),
+							currentBook.getPublishingHouse(),
+							currentBook.getPublishYear(), currentBook.getISBN());
 		}
-			
+
 	}
-	
-	public void dellBook (Book book) {
+
+	public void dellBook(Book book) {
 		for (int i = 0; i < books.size(); i++) {
 			if (book.equals(books.get(i))) {
-			books.remove(book);	
+				books.remove(book);
 			}
 		}
 	}
