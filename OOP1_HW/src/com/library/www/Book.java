@@ -1,11 +1,13 @@
 package com.library.www;
 
+import java.util.Calendar;
+
 public class Book {
-	private  String title;
-	private  String author;
-	private  String publishingHouse;
-	private  int publishYear;
-	private  int isbn;
+	private String title;
+	private String author;
+	private String publishingHouse;
+	private int publishYear;
+	private int isbn;
 
 	public Book(String newTitle, String newAuth, String house, int year,
 			int newISBN) {
@@ -16,8 +18,9 @@ public class Book {
 		this.setISBN(newISBN);
 
 	}
+
 	public Book() {
-		
+
 	}
 
 	public String getTitle() {
@@ -25,23 +28,30 @@ public class Book {
 	}
 
 	public void setTitle(String newTitle) {
-		this.title = newTitle;
+		if (newTitle != null || newTitle != "") {
+			this.title = newTitle;
+		}
 	}
 
 	public String getAuthor() {
 		return author;
 	}
 
-	public  void setAuthor(String author) {
-		this.author = author;
+	public void setAuthor(String author) {
+		if (author != null || author != "") {
+			this.author = author;
+		}
 	}
 
 	public String getPublishingHouse() {
 		return publishingHouse;
 	}
 
-	public  void setPublishingHouse(String publishingHouse) {
-		this.publishingHouse = publishingHouse;
+	public void setPublishingHouse(String publishingHouse) {
+		if (publishingHouse != null || publishingHouse != "") {
+			this.publishingHouse = publishingHouse;
+		}
+
 	}
 
 	public int getPublishYear() {
@@ -49,7 +59,11 @@ public class Book {
 	}
 
 	public void setPublishYear(int publishYear) {
-		this.publishYear = publishYear;
+		int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+
+		if (publishYear < currentYear) {
+			this.publishYear = publishYear;
+		}
 	}
 
 	public int getISBN() {
@@ -57,13 +71,9 @@ public class Book {
 	}
 
 	public void setISBN(int newISBN) {
-		this.isbn = newISBN;
-	}
-	public int getIsbn() {
-		return isbn;
-	}
-	public void setIsbn(int isbn) {
-		this.isbn = isbn;
+		if (newISBN > 0) {
+			this.isbn = newISBN;
+		}
 	}
 
 }

@@ -16,7 +16,9 @@ public class Library extends Book {
 	}
 
 	public void setName(String name) {
+		if(name != null || name != "") {
 		this.name = name;
+		}
 	}
 
 	public void addBook(Book newBook) {
@@ -41,10 +43,6 @@ public class Library extends Book {
 
 	public ArrayList<Book> getBooks() {
 		return books;
-	}
-
-	public void setBooks(ArrayList<Book> books) {
-		this.books = books;
 	}
 
 	public void getInfo(Book book) {
