@@ -1,23 +1,22 @@
 package com.flappybird.www;
-import java.awt.Color;
+
 
 
 public class FlappyBird extends MovingObject{
 	
-	private Color color;
 	private boolean isClicked;
+	private boolean isAlive;
 
-	public FlappyBird(String name, int age, boolean isWinterField,
-			boolean isMovin, Color newColor, boolean isFlapped) {
-		super(name, age, isWinterField, isMovin);
-		this.color = newColor;
-		this.setClicked(isFlapped);
+	public FlappyBird(boolean isMovin, boolean isAlive) {
+		super(isMovin);
+		this.setAlive(isAlive);
+		
 	}
 	
-	private void isScoring(){
-		point();
+	public boolean isClicked() {
+		return isClicked;
 	}
-	
+
 	public String click(){
 		 String clicked = "No Flap";
 		if (this.isClicked == true){
@@ -25,9 +24,26 @@ public class FlappyBird extends MovingObject{
 		} 
 		return clicked;
 	}
+	
+	public void isDead () {
+		if (this.isMoving() == false) {
+			this.isAlive = false;
+			System.out.println("You are dead!");
+		}
+	}
 
 	public void setClicked(boolean isClicked) {
 		this.isClicked = isClicked;
+	}
+
+
+	public boolean isAlive() {
+		return isAlive;
+	}
+
+
+	public void setAlive(boolean isAlive) {
+		this.isAlive = isAlive;
 	}
 	
 

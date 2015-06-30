@@ -1,58 +1,64 @@
 package com.flappybird.www;
-import java.util.Scanner;
+import java.awt.Color;
 
 
 
 public class GameObject {
 	
-	Scanner sc = new Scanner(System.in);
-	private String playerName;
-	private int playerAge;
-	private boolean isWinterField;
-	private int points = 0;
+	private String objectName;
+	private String objectType;
+	private Color objectColor;
+	private String backGround;
 	
 	
-	public GameObject(String name, int age, boolean field){
-		this.setPlayerName(name);
-		this.playerAge = age;
-		this.isWinterField = field;
-	}
-	public boolean isSummerField(){
-		if (this.isWinterField == true){
-			return false;
-		} 
-		return true;
-	}
-	public void startGame(){
-		
-		System.out.printf("Hello %s! Please insert \"S\" if you want to start the game!", playerName);
-		String input = sc.nextLine();
-		
-		switch (input.toLowerCase()){
-		case "s": System.out.println("You started the game!"); break;
-		default: System.out.println("Your game is not started!"); break;
-		}
+	public GameObject(String name, String object, Color color, String backGr){
+		this.setObjectName(name);
+		this.setObjectType(object);
+		this.setObjectColor(color);
+		this.setBackGround(backGr);
 	}
 	
-	public void point(){
-		setPoints(getPoints() + 1);
+	public GameObject(){
+		this.setObjectName("GreenTube");
+		this.setObjectType("Îbstacle");
+		this.setObjectColor(Color.GREEN);
+		this.setBackGround("Mountains");
+	}
+	
+	
+	public String getObjectName() {
+		return objectName;
 	}
 
-	public int getPoints() {
-		return points;
+	public void setObjectName(String objectName) {
+		this.objectName = objectName;
 	}
 
-	public void setPoints(int points) {
-		this.points = points;
+	public String getObjectType() {
+		return objectType;
 	}
 
-	public String getPlayerName() {
-		return playerName;
+	public void setObjectType(String objectType) {
+		this.objectType = objectType;
 	}
 
-	public void setPlayerName(String playerName) {
-		this.playerName = playerName;
+	public Color getObjectColor() {
+		return objectColor;
 	}
+
+	public void setObjectColor(Color objectColor) {
+		this.objectColor = objectColor;
+	}
+
+	public String getBackGround() {
+		return backGround;
+	}
+
+	public void setBackGround(String backGround) {
+		this.backGround = backGround;
+	}
+
+	
 	
 
 }

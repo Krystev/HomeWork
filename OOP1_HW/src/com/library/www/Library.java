@@ -27,8 +27,9 @@ public class Library extends Book {
 	}
 
 	public Book[] searchByAuthors(String authorName) {
-
+		
 		Book[] yourBooks = new Book[books.size()];
+		
 
 		for (int i = 0; i < books.size(); i++) {
 			for (int j = 0; j < yourBooks.length; j++) {
