@@ -29,14 +29,15 @@ public class Library extends Book {
 	public Book[] searchByAuthors(String authorName) {
 		
 		Book[] yourBooks = new Book[books.size()];
-		
+		int counter = 0;
 
 		for (int i = 0; i < books.size(); i++) {
-			for (int j = 0; j < yourBooks.length; j++) {
-				if (authorName.equalsIgnoreCase(books.get(j).getAuthor())) {
-					yourBooks[i] = books.get(j);
+			
+				if (authorName.equalsIgnoreCase(books.get(i).getAuthor())) {
+					yourBooks[counter] = books.get(i);
+					counter++;
 				}
-			}
+			
 		}
 
 		return yourBooks;
