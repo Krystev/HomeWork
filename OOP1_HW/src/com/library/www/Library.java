@@ -16,8 +16,8 @@ public class Library extends Book {
 	}
 
 	public void setName(String name) {
-		if(name != null || name != "") {
-		this.name = name;
+		if (name != null || name != "") {
+			this.name = name;
 		}
 	}
 
@@ -26,18 +26,16 @@ public class Library extends Book {
 
 	}
 
-	public Book[] searchByAuthors(String authorName) {
-		
-		Book[] yourBooks = new Book[books.size()];
-		int counter = 0;
+	public ArrayList<Book> searchByAuthors(String authorName) {
+
+		ArrayList<Book> yourBooks = new ArrayList<>();
 
 		for (int i = 0; i < books.size(); i++) {
-			
-				if (authorName.equalsIgnoreCase(books.get(i).getAuthor())) {
-					yourBooks[counter] = books.get(i);
-					counter++;
-				}
-			
+
+			if (authorName.equalsIgnoreCase(books.get(i).getAuthor())) {
+				yourBooks.add(books.get(i));
+			}
+
 		}
 
 		return yourBooks;

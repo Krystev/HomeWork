@@ -1,5 +1,7 @@
 package com.library.www;
 
+import java.util.ArrayList;
+
 public class Test {
 
 	public static void main(String[] args) {
@@ -22,22 +24,20 @@ public class Test {
 		lib1.addBook(book3);
 		lib1.addBook(book4);
 		lib1.addBook(book5);
+		
+		ArrayList<Book> books = lib1.getBooks();
 
-		for (Book books : lib1.getBooks()) {
-			lib1.getInfo(books);
-		}
-		int count = 0;
-		for (int i = 0; i < lib1.getBooks().size(); i++) {
-			
-			if (lib1.getBooks().get(i).equals(lib1.searchByAuthors("Stephen King")[count])) {
-				lib1.dellBook(lib1.getBooks().get(i));
-				count++;
-			}
-			
+		for (Book book : books) {
+			lib1.getInfo(book);
 		}
 		
-		for (Book books : lib1.getBooks()) {
-			lib1.getInfo(books);
+		ArrayList<Book> stivKingBooks = lib1.searchByAuthors("Stephen King");
+		
+		lib1.getBooks().removeAll(stivKingBooks);
+		
+		
+		for (Book book : books) {
+			lib1.getInfo(book);
 		}
 	}
 
