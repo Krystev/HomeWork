@@ -33,7 +33,9 @@ public class Test {
 		
 		ArrayList<Book> stivKingBooks = lib1.searchByAuthors("Stephen King");
 		
-		lib1.getBooks().removeAll(stivKingBooks);
+		for (int i = 0; i < stivKingBooks.size(); i++) {
+			lib1.dellBook(stivKingBooks.get(i));
+		}
 		
 		
 		for (Book book : books) {
