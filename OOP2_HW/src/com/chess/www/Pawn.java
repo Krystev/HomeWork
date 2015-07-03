@@ -7,7 +7,7 @@ public class Pawn extends PlayingPiece {
 	protected Pawn(int newX, int newY, int color) {
 		super(newX, newY, color);
 		this.hasBeenMoved = false;
-
+		
 		if (color == COLOR_BLACK) {
 			this.setSymbol(BLACK_PAWN);
 		} else {

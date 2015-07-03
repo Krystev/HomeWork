@@ -15,6 +15,7 @@ public class PlayingPiece {
 	public static final char WHITE_BISHOP = '\u2657';
 	public static final char WHITE_QUEEN = '\u2655';
 	public static final char WHITE_KING = '\u2654';
+	public static final char NO_PIECE = ' ';
 	
 	private int x, y;
 	private boolean isAlive;
@@ -28,6 +29,11 @@ public class PlayingPiece {
 		this.color = newColor;
 		this.isAlive = true;
 		
+	}
+	
+	protected PlayingPiece(int newX, int newY) {
+		this.setX(newX);
+		this.setY(newY);
 	}
 	
 	public int getY() {
