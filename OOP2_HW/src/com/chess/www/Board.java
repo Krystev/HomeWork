@@ -47,49 +47,75 @@ public class Board {
 			board[3][7] = new Queen(3, 7, COLOR_BLACK);
 			board[4][7] = new King(4, 7, COLOR_BLACK);
 			
-			for (int i = 2; i < 6; i++) {
-				for (int j = 2; j < 6; j++) {
-					board[i][j] = new NoPiece(i, j);
-				}
+			for (int i = 0; i < 8; i++) {
+				System.out.print(" " + i + " ");
 			}
+			
+			System.out.println();
 			
 			for (int i = 0; i < 8; i++) {
 				for (int j = 0; j < 8; j++) {
-					System.out.println("|" + board[i][j].getSymbol() + "|");
+					if (board[i][j] != null) {
+					System.out.print("|" + board[i][j].getSymbol());
+					} else {
+						System.out.print("|" + "  ");
+					}
+					
 				}
+				
+				System.out.println("|" + i);
 			}
+			System.out.println();
 			
 		
 	}
 
 	public boolean play(int color, int fromX, int fromY, int toX, int toY) {
 		
+		boolean isTrue = false;
+		
 		if (isFirstMove && color == COLOR_WHITE) {
-			return true;
+			isTrue=true;
 
 		} else if (isFirstMove && color == COLOR_BLACK) {
-			return false;
+			isTrue=false;
 		}
 
 		if (color == this.color || (toX == fromX && toY == fromY)) {
-			return false;
+			isTrue=false;
 		}
 		
 		if (board[toX][toY] != null) {
 			this.board[toX][toY].setAlive(false);
 		}
+		
+		if (isTrue == true){
 
 		this.isFirstMove = false;
 		
-		board[toX][toY] = board[fromX][fromY];
+		(board[toX][toY]).move(fromX, fromY);
 		board[fromX][fromY] = null;
 		
 		for (int i = 0; i < 8; i++) {
-			for (int j = 0; j < 8; j++) {
-				System.out.println("|" + board[i][j].getSymbol() + "|");
-			}
+			System.out.print(" " + i + " ");
 		}
 		
+		System.out.println();
+		
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
+				if (board[i][j] != null) {
+				System.out.print("|" + board[i][j].getSymbol());
+				} else {
+					System.out.print("|" + "  ");
+				}
+				
+			}
+			
+			System.out.println("|" + i);
+		}
+		System.out.println();
+		}
 		return true;
 	}
 	
