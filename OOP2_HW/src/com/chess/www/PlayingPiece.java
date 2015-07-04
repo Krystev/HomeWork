@@ -36,15 +36,15 @@ public class PlayingPiece {
 		this.setY(newY);
 	}
 	
-	public int getY() {
-		return y;
+	public int getX() {
+		return x;
 	}
 	public void setY(int y) {
 		this.y = y;
 	}
 
-	public int getX() {
-		return x;
+	public int getY() {
+		return y;
 	}
 
 	public void setX(int x) {
@@ -52,12 +52,13 @@ public class PlayingPiece {
 	}
 	
 	protected boolean moveIsLegal (int newX, int newY) {
+		boolean isLegal = false;
 		
 		if ((0 <= newX && newX <= 7) && (0 <= newY && newY <= 7)){
 			
-			return true;
+			isLegal = true;
 		}
-		return false;
+		return isLegal;
 	}
 	
 	public boolean move (int newX, int newY) {

@@ -19,11 +19,13 @@ public class Knight extends PlayingPiece {
 		int newPositionX = newX - getX();
 		int newPositionY = newY - getY();
 
-		if (super.moveIsLegal(newX, newY)
-				&& (((Math.abs(newPositionX) == 2) && (Math.abs(newPositionY) == 1)) || ((Math
-						.abs(newPositionY) == 2) && (Math.abs(newPositionX) == 1)))) {
+		if (super.moveIsLegal(newX, newY)) {
+			if (((Math.abs(newPositionX) == 2) && (Math.abs(newPositionY) == 1))
+					|| ((Math.abs(newPositionY) == 2) && (Math
+							.abs(newPositionX) == 1))) {
 
-			return true;
+				return true;
+			}
 		}
 		return false;
 	}

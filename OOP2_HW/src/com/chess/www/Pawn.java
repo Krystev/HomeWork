@@ -27,19 +27,21 @@ public class Pawn extends PlayingPiece {
 
 	@Override
 	protected boolean moveIsLegal(int newX, int newY) {
+		
+		boolean isLegal = false;
 
-		int newPositionX = newX - getX();
+		int newPositionX = newX - this.getX();
 
 		if (super.moveIsLegal(newX, newY)) {
 			if ((hasBeenMoved == false)
 					&& (((Math.abs(newPositionX) <= 2) && getY() == newY))) {
-				return true;
+				isLegal = true;
 			} else if ((hasBeenMoved == true)
 					&& (((Math.abs(newPositionX) <= 1) && getY() == newY))) {
-				return true;
+				isLegal =  true;
 			}
 		}
-		return false;
+		return isLegal;
 	}
 
 }
