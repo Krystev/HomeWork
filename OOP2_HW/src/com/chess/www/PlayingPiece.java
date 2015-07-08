@@ -36,6 +36,11 @@ public class PlayingPiece {
 		this.setY(newY);
 	}
 	
+	
+	protected PlayingPiece() {
+		
+	}
+	
 	public int getX() {
 		return x;
 	}

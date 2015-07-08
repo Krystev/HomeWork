@@ -7,7 +7,7 @@ public class Pawn extends PlayingPiece {
 	protected Pawn(int newX, int newY, int color) {
 		super(newX, newY, color);
 		this.hasBeenMoved = false;
-		
+
 		if (color == COLOR_BLACK) {
 			this.setSymbol(BLACK_PAWN);
 		} else {
@@ -27,21 +27,33 @@ public class Pawn extends PlayingPiece {
 
 	@Override
 	protected boolean moveIsLegal(int newX, int newY) {
-		
+
 		boolean isLegal = false;
 
 		int newPositionX = newX - this.getX();
 
 		if (super.moveIsLegal(newX, newY)) {
-			if ((hasBeenMoved == false)
-					&& (((Math.abs(newPositionX) <= 2) && getY() == newY))) {
+			if ((!hasBeenMoved)
+					&& (((Math.abs(newPositionX) <= 2) && getY() == newY))
+					&& isValidTrace(newX, newY)) {
 				isLegal = true;
-			} else if ((hasBeenMoved == true)
-					&& (((Math.abs(newPositionX) <= 1) && getY() == newY))) {
-				isLegal =  true;
+			} else if ((hasBeenMoved)
+					&& (((Math.abs(newPositionX) <= 1) && getY() == newY))
+					&& isValidTrace(newX, newY)) {
+
+				isLegal = true;
 			}
 		}
 		return isLegal;
+	}
+
+	public boolean isValidTrace(int newX, int newY) {
+
+		if (Board.board[newX][newY] == null) {
+			return true;
+		}
+		return false;
+
 	}
 
 }

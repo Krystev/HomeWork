@@ -22,11 +22,23 @@ public class Knight extends PlayingPiece {
 		if (super.moveIsLegal(newX, newY)) {
 			if (((Math.abs(newPositionX) == 2) && (Math.abs(newPositionY) == 1))
 					|| ((Math.abs(newPositionY) == 2) && (Math
-							.abs(newPositionX) == 1))) {
+							.abs(newPositionX) == 1))
+					&& isValidTrace(newX, newY)) {
 
 				return true;
 			}
 		}
 		return false;
+	}
+
+	public boolean isValidTrace(int newX, int newY) {
+
+		if ((Board.board[newX][newY]) != null) {
+			if (Board.board[newX][newY].getColor() == this.getColor()) {
+				return false;
+			}
+		}
+		return true;
+
 	}
 }

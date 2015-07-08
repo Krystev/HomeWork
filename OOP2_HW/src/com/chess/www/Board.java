@@ -5,7 +5,7 @@ public class Board {
 	public static final int COLOR_WHITE = 1;
 	public static final int COLOR_BLACK = 2;
 
-	PlayingPiece[][] board;
+	public static PlayingPiece[][] board;
 	private boolean isFirstMove;
 	private int color;
 
@@ -52,7 +52,8 @@ public class Board {
 	}
 
 	public boolean play(int color, int fromX, int fromY, int toX, int toY) {
-
+		
+		
 		boolean isTrue = false;
 		// Check if this is the first turn and only white can move
 		if (isFirstMove && color == COLOR_WHITE) {
@@ -95,7 +96,7 @@ public class Board {
 	}
 
 	public void setBoard(PlayingPiece[][] board) {
-		this.board = board;
+		Board.board = board;
 	}
 
 	public void printBoard() {
