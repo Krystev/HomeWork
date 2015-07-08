@@ -1,7 +1,7 @@
 package com.hierarchy.www;
 
 public class Dog extends Animal{
-	private static int count = 0;
+	public static int count = 0;
 	private static int ages = 0;
 
 	public Dog(String dogName, int dogAge, String dogSex) {
