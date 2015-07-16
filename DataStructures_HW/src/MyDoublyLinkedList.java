@@ -8,20 +8,16 @@ public class MyDoublyLinkedList {
 		Node newNode = new Node(element, null);
 
 		if (head != null) {
-			Node temp = head;
-
-			while (temp.getNext() != null) {
-				temp = temp.getNext();
-			}
-
-			temp.setNext(newNode);
+			
+			newNode.setPrev(tail);
+			tail.setNext(newNode);
 			tail = newNode;
-			newNode.setPrev(temp); // doubly linked method here
+			 
 
 		} else {
 			this.head = newNode;
 			tail = head;
-			head.setPrev(null); // and here
+			head.setPrev(null); 
 		}
 		this.count++;
 		return true;
