@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 
 public class ClassInfo {
@@ -6,8 +8,8 @@ public class ClassInfo {
 	private String classNumber;
 	private String roomNumber;
 	private String classManager;
-	private ArrayList<Students> students;
-	private ArrayList<Teacher> teachers;
+	private List<Students> students;
+	private List<Teacher> teachers;
 	
 	public ClassInfo(String classNumber, String roomNumber, String classManager) {
 		super();
@@ -49,16 +51,20 @@ public class ClassInfo {
 	public ArrayList<Human> gotBirthday(String date) {
 		ArrayList<Human> allBirthdays = new ArrayList<>();
 		
-		for (int i = 0; i < teachers.size(); i++) {
-			if (date.equals(teachers.get(i).getBornDate())) {
-				allBirthdays.add(teachers.get(i));
+		for (Iterator iterator = teachers.iterator(); iterator.hasNext();) {
+			Human human = (Human) iterator.next();
+			if (date.equals(human.getBornDate())) {
+				allBirthdays.add(human);
 			}
 		}
 		
-		for (int i = 0; i < students.size(); i++) {
-			if (date.equals(students.get(i).getBornDate())) {
-				allBirthdays.add(students.get(i));
+		for (Iterator iterator = students.iterator(); iterator.hasNext();) {
+			Human human = (Human) iterator.next();
+			
+			if (date.equals(human.getBornDate())) {
+				allBirthdays.add(human);
 			}
+			
 		}
 		
 		return allBirthdays;
