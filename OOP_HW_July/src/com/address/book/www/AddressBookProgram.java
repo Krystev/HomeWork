@@ -13,9 +13,9 @@ public class AddressBookProgram {
 		Scanner sc = new Scanner(System.in);
 		boolean check = true;
 		while (check) {
-			System.out.printf("Please select an option:%n1 - Add contact%n2 - Add category%n3 - Show all contacts"
-					+ "%n4 - Show all categories%n5 - Search by name%n6 - Search by categories%n7 - Save contacts to txt file"
-					+ "%n0 - For Exit\n");
+			System.out.printf("Please select an option: 1 - Add contact, 2 - Add category, 3 - Show all contacts,"
+					+ " 4 - Show all categories, 5 - Search by name, 6 - Search by categories, %n7 - Save contacts to txt file,"
+					+ " 0 - For Exit\n");
 			int option = sc.nextInt();
 			switch (option) {
 
