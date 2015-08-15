@@ -1,7 +1,7 @@
 package com.realeastate.register.www;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Catalog{
@@ -17,26 +17,12 @@ public class Catalog{
 		
 	}
 	
-	public void sort(List<Property> properties){
-		Property[] array = new Property[properties.size()];
-		for (int i = 0; i < array.length; i++) {
-			array[i] = properties.get(i);
-		}
+	public void sort(){
+		Collections.sort(properties);
 		
-		for (int i = 1; i < array.length; i++) {
-			for (int j = array.length - 1; j >= i; j--) {
-				if (array[j].compareTo(array[j - 1]) == 1) {
-					
-					Property temp = array[j - 1];
-					array[j - 1] = array[j];
-					array[j] = temp;
-					
-				}
-			}
-		}
-		
-		this.setProperties(Arrays.asList(array));
 	}
+	
+	
 
 	public List<Property> getProperties() {
 		return properties;

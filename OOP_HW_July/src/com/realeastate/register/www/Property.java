@@ -40,8 +40,12 @@ public class Property implements Comparable<Property>{
 	}
 	public int compareTo(Property property) {
 		
-		if (this.getPrice() < property.getPrice()) {
+		if (this.getPrice() > property.getPrice()) {
 			return 1;
+		}
+		
+		if (this.getPrice() < property.getPrice()) {
+			return -1;
 		}
 			return 0;
 		
